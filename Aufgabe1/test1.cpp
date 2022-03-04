@@ -10,7 +10,16 @@ using namespace std;
 int main()
 {
 	// 读文件 Datei lesen
-	ifstream inFile("/Users/zhuqi/Desktop/ALGOS/Aufgabe1/MSFT.csv", ios::in);
+	std::cout << "Bitte Wertpapiere Abk eingeben" << '\n';
+	string str="/Users/zhuqi/Desktop/ALGOS/Aufgabe1/";//Dateipfad
+	string c;//Wertpapiere Abk
+	string csv=".csv";
+ 	std::cin >> c;
+ 	str+=c;
+ 	str+=csv;
+	std::cout << str<<endl;
+ 	ifstream inFile(str, ios::in);
+	// ifstream inFile("/Users/zhuqi/Desktop/ALGOS/Aufgabe1/MSFT.csv", ios::in);
 	string lineStr;
 	vector<vector<string> > strArray;
 	while (getline(inFile, lineStr))
