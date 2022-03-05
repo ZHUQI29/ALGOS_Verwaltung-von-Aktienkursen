@@ -6,21 +6,17 @@
 
 using namespace std;
 
-void search(){
+void import(){
 	// 读文件 Datei lesen
-	std::cout << "Bitte Wertpapiere Abk eingeben" << '\n';
-	string str="/Users/zhuqi/Desktop/ALGOS/Aufgabe1/";//Dateipfad
-	string c;//Wertpapiere Abk
-	string csv=".csv";
-	std::cin >> c;
-	str+=c;
-	str+=csv;
-	std::cout << str<<endl;
+	std::cout << "Ziehen Sie per Drag&Drop die Datei für den import" << '\n';
+	string str;
+	std::cin >> str;
+	std::cout << std::endl;
 
 	ifstream inFile(str, ios::in);
 	if( inFile.fail( ) ) {
             cerr << "Error: Datei nicht gefunden oder kann nicht geöffnet werden" << str <<endl<< endl;
-            search();  // Error;
+            import();  // Error;
         }
 	// ifstream inFile("/Users/zhuqi/Desktop/ALGOS/Aufgabe1/MSFT.csv", ios::in);
 	string lineStr;
@@ -53,8 +49,8 @@ int main()
 		switch (frage()) {
 			case '1':std::cerr << "noch nicht schreiben" << '\n';break;
 			case '2':std::cerr << "noch nicht schreiben" << '\n';break;
-			case '3':std::cerr << "noch nicht schreiben" << '\n';break;
-			case '4':search();break;
+			case '3':import();break;
+			case '4':std::cerr << "noch nicht schreiben" << '\n';break;
 			case '5':std::cerr << "noch nicht schreiben" << '\n';break;
 			case '6':std::cerr << "noch nicht schreiben" << '\n';break;
 			case '7':std::cerr << "noch nicht schreiben" << '\n';break;
