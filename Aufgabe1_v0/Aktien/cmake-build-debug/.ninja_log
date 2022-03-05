@@ -1,0 +1,26 @@
+# ninja log v5
+1	383	1646496141236872160	CMakeFiles/Aktien.dir/main.cpp.o	ddf52753a5beca93
+1	26	1646493093179204404	CMakeFiles/Aktien.dir/StockEntry.cpp.o	be2354c36ca9f1cf
+383	453	1646496141306872409	Aktien	c1988bbfe9301b1f
+1	183	1646494630621483280	CMakeFiles/Aktien.dir/Holder.cpp.o	7aceac0443266098
+1	172	1646494630611483244	CMakeFiles/Aktien.dir/Stock.cpp.o	d0df680ba8045d2
+1	13	1646496174260322809	build.ninja	4c5f46d97d084503
+0	178	1646496174443656793	CMakeFiles/Aktien.dir/Holder.cpp.o	bcbf01a4fe72f3c2
+178	231	1646496174493656971	Aktien	c1988bbfe9301b1f
+1	166	1646499330413446655	CMakeFiles/Aktien.dir/Stock.cpp.o	d0df680ba8045d2
+1	211	1646499330456780129	CMakeFiles/Aktien.dir/Holder.cpp.o	bcbf01a4fe72f3c2
+0	328	1646499330573447175	CMakeFiles/Aktien.dir/main.cpp.o	ddf52753a5beca93
+328	379	1646499330623447337	Aktien	c1988bbfe9301b1f
+0	224	1646499507860690728	CMakeFiles/Aktien.dir/Holder.cpp.o	bcbf01a4fe72f3c2
+0	334	1646499507970691086	CMakeFiles/Aktien.dir/main.cpp.o	ddf52753a5beca93
+334	385	1646499508020691249	Aktien	c1988bbfe9301b1f
+1	333	1646499569617559082	CMakeFiles/Aktien.dir/main.cpp.o	ddf52753a5beca93
+333	379	1646499569664225901	Aktien	c1988bbfe9301b1f
+0	242	1646499761654919891	CMakeFiles/Aktien.dir/Holder.cpp.o	bcbf01a4fe72f3c2
+0	368	1646499761781587026	CMakeFiles/Aktien.dir/main.cpp.o	ddf52753a5beca93
+368	417	1646499761828253866	Aktien	c1988bbfe9301b1f
+1	171	1646500963155784736	CMakeFiles/Aktien.dir/Stock.cpp.o	d0df680ba8045d2
+1	191	1646500963175784805	CMakeFiles/Aktien.dir/StockEntry.cpp.o	be2354c36ca9f1cf
+1	372	1646500963359118761	CMakeFiles/Aktien.dir/main.cpp.o	ddf52753a5beca93
+1	379	1646500963365785450	CMakeFiles/Aktien.dir/Holder.cpp.o	bcbf01a4fe72f3c2
+379	443	1646500963429118999	Aktien	c1988bbfe9301b1f

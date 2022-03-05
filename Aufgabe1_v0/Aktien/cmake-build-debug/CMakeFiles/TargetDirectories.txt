@@ -1,0 +1,3 @@
+/home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug/CMakeFiles/Aktien.dir

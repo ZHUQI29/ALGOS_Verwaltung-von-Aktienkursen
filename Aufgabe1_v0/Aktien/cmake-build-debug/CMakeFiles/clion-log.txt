@@ -1,0 +1,4 @@
+/app/extra/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/app/extra/clion/bin/ninja/linux/ninja -G Ninja /home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug
