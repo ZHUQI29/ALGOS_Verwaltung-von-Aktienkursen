@@ -3,17 +3,22 @@
 
 #include <vector>
 #include <string>
+#include <map>
 #include "Stock.hpp"
+#include "HashTable.hpp"
+
 using namespace std;
 
 class Holder {
 public:
     Holder();
-    void addStock(vector<string> strArray);
+    void addStock(vector<string> strArray, string abbreviation, string name);
     vector<Stock*> stocks;
-    void addStock();
     vector<string> line(string str);
+    Stock* search(string input);
 private:
+    HashTable* hashTable;
+    HashTable* abbrToNameDic;
 };
 
 

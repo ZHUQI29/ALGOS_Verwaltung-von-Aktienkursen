@@ -3,10 +3,11 @@
 #include "Holder.hpp"
 
 Holder::Holder() {
-
+    this->hashTable = new HashTable();
+    this->abbrToNameDic = new HashTable();
 }
 
-void Holder::addStock(vector<string> strArray) {
+void Holder::addStock(vector<string> strArray, string abbreviation, string name) {
     StockEntry* stockEntries[30];
     for (int i = 0; i < 30; ++i) {
         vector<string> strFragments = line(strArray.at(strArray.size()-i-1));
@@ -19,7 +20,8 @@ void Holder::addStock(vector<string> strArray) {
         int volume = std::stoi(strFragments.at(6));
         stockEntries[i] = new StockEntry(date, open, high, low, close, adj_close, volume);
     }
-    stocks.push_back(new Stock("NT",stockEntries));
+    abbrToNameDic->insert(new Stock(abbreviation, name), abbreviation);
+    hashTable->insert(new Stock(abbreviation, name,stockEntries), name);
 }
 
 vector<string> Holder::line(string str) {
@@ -32,3 +34,13 @@ vector<string> Holder::line(string str) {
     };
     return lineArray;
 }
+
+Stock* Holder::search(string input) {
+    string name = abbrToNameDic->search(hashTable->hash(input), input)->name;
+    if (name == "-") {
+        return hashTable->search(hashTable->hash(input), input);
+    } else {
+        return hashTable->search(hashTable->hash(name), input);
+    }
+}
+

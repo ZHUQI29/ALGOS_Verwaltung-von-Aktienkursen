@@ -96,6 +96,12 @@ build CMakeFiles/Aktien.dir/Holder.cpp.o: CXX_COMPILER__Aktien_Debug /home/domai
   OBJECT_DIR = CMakeFiles/Aktien.dir
   OBJECT_FILE_DIR = CMakeFiles/Aktien.dir
 
+build CMakeFiles/Aktien.dir/HashTable.cpp.o: CXX_COMPILER__Aktien_Debug /home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/HashTable.cpp || cmake_object_order_depends_target_Aktien
+  DEP_FILE = CMakeFiles/Aktien.dir/HashTable.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Aktien.dir
+  OBJECT_FILE_DIR = CMakeFiles/Aktien.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Aktien
@@ -104,7 +110,7 @@ build CMakeFiles/Aktien.dir/Holder.cpp.o: CXX_COMPILER__Aktien_Debug /home/domai
 #############################################
 # Link the executable Aktien
 
-build Aktien: CXX_EXECUTABLE_LINKER__Aktien_Debug CMakeFiles/Aktien.dir/main.cpp.o CMakeFiles/Aktien.dir/Stock.cpp.o CMakeFiles/Aktien.dir/StockEntry.cpp.o CMakeFiles/Aktien.dir/Holder.cpp.o
+build Aktien: CXX_EXECUTABLE_LINKER__Aktien_Debug CMakeFiles/Aktien.dir/main.cpp.o CMakeFiles/Aktien.dir/Stock.cpp.o CMakeFiles/Aktien.dir/StockEntry.cpp.o CMakeFiles/Aktien.dir/Holder.cpp.o CMakeFiles/Aktien.dir/HashTable.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Aktien.dir
   POST_BUILD = :

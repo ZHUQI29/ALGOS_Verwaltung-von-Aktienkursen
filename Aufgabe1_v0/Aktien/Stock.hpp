@@ -8,8 +8,10 @@ using namespace std;
 
 class Stock {
 public:
-    Stock(string abbr, StockEntry* entries[30]);
+    Stock(string abbr, string name, StockEntry* entries[30]);
+    Stock(string abbr, string name);
     string abbreviation;
+    string name;
     StockEntry* entries[30];
 
 private:
