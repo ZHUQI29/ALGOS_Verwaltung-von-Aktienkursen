@@ -1,10 +1,16 @@
 #include <sstream>
 #include <time.h>
+#include <iostream>
 #include "Holder.hpp"
 
 Holder::Holder() {
     this->hashTable = new HashTable();
     this->abbrToNameDic = new HashTable();
+}
+
+Holder::~Holder() {
+    delete hashTable;
+    delete abbrToNameDic;
 }
 
 void Holder::addStock(vector<string> strArray, string abbreviation, string name) {
@@ -36,11 +42,26 @@ vector<string> Holder::line(string str) {
 }
 
 Stock* Holder::search(string input) {
-    string name = abbrToNameDic->search(hashTable->hash(input), input)->name;
-    if (name == "-") {
-        return hashTable->search(hashTable->hash(input), input);
+    int hashedInput = hashTable->hash(input);
+    Stock* stock = abbrToNameDic->search(hashedInput, input);
+    if (stock == nullptr) {
+        return hashTable->search(hashedInput, input);
     } else {
+        string name = stock->name;
         return hashTable->search(hashTable->hash(name), input);
     }
 }
+
+void Holder::del(string input) {
+    Stock* stock = search(input);
+    if (stock == nullptr) {
+        std::cout << "\nNichts zum Löschen." << std::endl;
+    } else {
+        string abbr = stock->abbreviation;
+        abbrToNameDic->del(hashTable->hash(stock->abbreviation), stock->abbreviation);
+        hashTable->del(hashTable->hash(stock->name), stock->abbreviation);
+        std::cout << "\n Gelöscht.";
+    }
+}
+
 

@@ -7,6 +7,16 @@ HashTable::HashTable() {
     }
 }
 
+HashTable::~HashTable() {
+    for (int i = 0; i < TABLE_SIZE; ++i) {
+        for (int j = 0; j < Table[i].size(); ++j) {
+            delete Table[i].at(j);
+        }
+        Table[i].erase(Table[i].begin(), Table[i].end());
+    }
+    //delete[] Table[];
+}
+
 int HashTable::hash(std::string word) {
     int seed = 137;
     long hash = 0;
@@ -36,5 +46,8 @@ Stock* HashTable::search(int index, string abbrOrName) {
 }
 
 void HashTable::del(int index, string abbr) {
-    delete search(index, abbr);
+    delete (search(index, abbr));
+    if (Table[index].size() == 1) {
+        Table[index].erase(Table[index].begin());
+    }
 }

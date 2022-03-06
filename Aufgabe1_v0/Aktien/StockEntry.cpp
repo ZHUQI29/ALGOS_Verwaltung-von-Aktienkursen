@@ -19,3 +19,6 @@ StockEntry::StockEntry(std::string date, float open, float high, float low, floa
     this->adj_close = adj_close;
     this->volume = volume;
 }
+
+StockEntry::~StockEntry() {
+}

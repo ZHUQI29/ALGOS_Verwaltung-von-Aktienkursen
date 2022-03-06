@@ -9,6 +9,7 @@
 class HashTable {
 public:
     HashTable();
+    ~HashTable();
     int hash(std::string word);
     void insert(Stock* stock, string name);
     Stock* search(int index, string abr);

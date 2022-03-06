@@ -8,6 +8,7 @@ class StockEntry {
 public:
     StockEntry();
     StockEntry(std::string date, float open, float high, float low, float close, float adj_close, int volume);
+    ~StockEntry();
     std::string date;
     float open;
     float high;

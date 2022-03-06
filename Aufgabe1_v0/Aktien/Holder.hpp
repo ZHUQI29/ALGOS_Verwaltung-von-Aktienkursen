@@ -12,10 +12,12 @@ using namespace std;
 class Holder {
 public:
     Holder();
+    ~Holder();
     void addStock(vector<string> strArray, string abbreviation, string name);
     vector<Stock*> stocks;
     vector<string> line(string str);
     Stock* search(string input);
+    void del(string input);
 private:
     HashTable* hashTable;
     HashTable* abbrToNameDic;

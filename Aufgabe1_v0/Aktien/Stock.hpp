@@ -10,9 +10,10 @@ class Stock {
 public:
     Stock(string abbr, string name, StockEntry* entries[30]);
     Stock(string abbr, string name);
+    ~Stock();
     string abbreviation;
     string name;
-    StockEntry* entries[30];
+    StockEntry** entries;
 
 private:
 

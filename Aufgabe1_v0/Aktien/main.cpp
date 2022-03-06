@@ -33,46 +33,59 @@ void import(Holder* holder){
         strArray.push_back(lineStr);
     }
     holder->addStock(strArray, abbr, name);
-    std::cout << "\ndone: " << strArray.size() << std::endl;
+    std::cout << "\ndone\n" << std::endl;
 
 }
 
 void plotAllEntries(Stock* stock) {
-    std::cout << "\nDate\t\tOpen\tHigh\tLow\tClose\tAdjCls\tVolume\n";
-    for (int i = 0; i < 30; ++i) {
-        std::cout << stock->entries[i]->date;
-        std::cout << "\t"<< stock->entries[i]->open;
-        std::cout << "\t" << stock->entries[i]->high;
-        std::cout << "\t" << stock->entries[i]->low;
-        std::cout << "\t" << stock->entries[i]->close;
-        std::cout << "\t" << stock->entries[i]->adj_close;
-        std::cout << "\t" << stock->entries[i]->volume;
-        std::cout << std::endl;
+    if (stock != nullptr) {
+        std::cout << "\nDate\t\tOpen\tHigh\tLow\tClose\tAdjCls\tVolume\n";
+        for (int i = 0; i < 30; ++i) {
+            std::cout << stock->entries[i]->date;
+            std::cout << "\t"<< stock->entries[i]->open;
+            std::cout << "\t" << stock->entries[i]->high;
+            std::cout << "\t" << stock->entries[i]->low;
+            std::cout << "\t" << stock->entries[i]->close;
+            std::cout << "\t" << stock->entries[i]->adj_close;
+            std::cout << "\t" << stock->entries[i]->volume;
+            std::cout << std::endl;
+        }
     }
 }
 
 void showLastEntry(Stock* stock) {
-    std::cout << stock->entries[0]->date << ": ";
-    std::cout << "\tOpen: " << stock->entries[0]->open;
-    std::cout << "\tHigh: " << stock->entries[0]->high;
-    std::cout << "\tLow: " << stock->entries[0]->low;
-    std::cout << "\tClose: " << stock->entries[0]->close;
-    std::cout << "\tAdjCls: " << stock->entries[0]->adj_close;
-    std::cout << "\tVolume: " << stock->entries[0]->volume;
-    std::cout << std::endl;
+    if (stock != nullptr) {
+        std::cout << stock->entries[0]->date << ": ";
+        std::cout << "\tOpen: " << stock->entries[0]->open;
+        std::cout << "\tHigh: " << stock->entries[0]->high;
+        std::cout << "\tLow: " << stock->entries[0]->low;
+        std::cout << "\tClose: " << stock->entries[0]->close;
+        std::cout << "\tAdjCls: " << stock->entries[0]->adj_close;
+        std::cout << "\tVolume: " << stock->entries[0]->volume;
+        std::cout << std::endl;
+    }
 }
 
-Stock* search(Holder* holder) {
+string getInput() {
     std::cout << "Geben Sie Name oder Kuerzel ein: ";
     string input;
     std::cin >> input;
     for_each(input.begin(), input.end(), convert());
-    Stock* result = holder->search(input);
+    return input;
+}
+
+Stock* search(Holder* holder) {
+    Stock* result = holder->search(getInput());
     if (result == nullptr) {
         std::cout << "not found";
+        return result;
     } else {
         return result;
     }
+}
+
+void del(Holder* holder) {
+    holder->del(getInput());
 }
 
 char frage(){
@@ -89,7 +102,7 @@ int main()
     while(i){
         switch (frage()) {
             case '1':std::cerr << "noch nicht schreiben" << '\n';break;
-            case '2':std::cerr << "noch nicht schreiben" << '\n';break;
+            case '2':del(holder);break;
             case '3':import(holder);break;
             case '4':showLastEntry(search(holder));break;
             case '5':plotAllEntries(search(holder));break;
@@ -98,7 +111,7 @@ int main()
             case '8':i=0;break;
         }
     }
-    getchar();
+    delete holder;
     return 0;
 }
 
