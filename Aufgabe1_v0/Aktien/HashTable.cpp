@@ -49,5 +49,7 @@ void HashTable::del(int index, string abbr) {
     delete (search(index, abbr));
     if (Table[index].size() == 1) {
         Table[index].erase(Table[index].begin());
+    } else if (Table[index].size() > 1) {
+        Table[index].erase(Table[index].end());
     }
 }

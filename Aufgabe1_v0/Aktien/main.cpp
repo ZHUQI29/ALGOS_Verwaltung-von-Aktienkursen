@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <limits>
 #include "Holder.hpp"
 #include "globals.hpp"
 
@@ -37,6 +38,50 @@ void import(Holder* holder){
 
 }
 
+char getChar(int index, int actualPerc, int nextPerc = 0) {
+    int actualPixelPos = 10 - index;
+    if (actualPerc == actualPixelPos) {
+        if (nextPerc > actualPerc) {
+            return '/';
+        } else if (nextPerc < actualPerc) {
+            return '\\';
+        } else if (nextPerc == actualPerc) {
+            return '-';
+        }
+    } else if (actualPerc > actualPixelPos) {
+        return '.';
+    } else if (actualPerc < actualPixelPos) {
+        return ' ';
+    }
+    return ' ';
+}
+
+vector<vector<char>> generateASCII(Stock* stock) {
+    vector<vector<char>> ascii;
+    vector<int> percentages;
+    float highest = std::numeric_limits<float>::min(), lowest = std::numeric_limits<float>::max(), dif;
+    for (int i = 0; i < 10; ++i) {
+
+        ascii.push_back({'|'});
+    }
+    for (int i = 0; i < 30; ++i) {
+        float entry = stock->entries[i]->close;
+        highest = entry > highest ? entry : highest;
+        lowest = entry < lowest ? entry : lowest;
+    }
+    dif = highest - lowest;
+    for (int i = 29; i >= 0; --i) {
+        percentages.push_back((int)((stock->entries[i]->close - lowest) * 10 / dif));
+    }
+    percentages.push_back(lowest);
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            ascii.at(i).push_back(getChar(i, percentages.at(j), percentages.at(j+1)));
+        }
+    }
+    return ascii;
+}
+
 void plotAllEntries(Stock* stock) {
     if (stock != nullptr) {
         std::cout << "\nDate\t\tOpen\tHigh\tLow\tClose\tAdjCls\tVolume\n";
@@ -50,8 +95,19 @@ void plotAllEntries(Stock* stock) {
             std::cout << "\t" << stock->entries[i]->volume;
             std::cout << std::endl;
         }
+        vector<vector<char>> ascii = generateASCII(stock);
+        for (int i = 0; i < 10; ++i) {
+            std::cout << " ";
+            for (int j = 0; j < 31; ++j) {
+                std::cout << ascii.at(i).at(j) << " ";
+            }
+            std::cout << "\n";
+        }
+        std::cout << "30 - - - -25 - - - -20 - - - -15 - - - -10 - - - - 5 - - - - 0\n";
     }
 }
+
+
 
 void showLastEntry(Stock* stock) {
     if (stock != nullptr) {
