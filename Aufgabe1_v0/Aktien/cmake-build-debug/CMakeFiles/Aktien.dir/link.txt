@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Aktien.dir/main.cpp.o CMakeFiles/Aktien.dir/Stock.cpp.o CMakeFiles/Aktien.dir/StockEntry.cpp.o CMakeFiles/Aktien.dir/Holder.cpp.o CMakeFiles/Aktien.dir/HashTable.cpp.o -o Aktien 
