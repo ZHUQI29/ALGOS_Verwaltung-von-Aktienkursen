@@ -1,3 +1,3 @@
-/Users/zhuqi/Desktop/ALGOS/Aufgabe1_v0/Aktien/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/zhuqi/Desktop/ALGOS/Aufgabe1_v0/Aktien/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/zhuqi/Desktop/ALGOS/Aufgabe1_v0/Aktien/cmake-build-debug/CMakeFiles/Aktien.dir
+/home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/domain/Nextcloud/Documents/Technikum/2_Semester/ALGOS/Aktien/cmake-build-debug/CMakeFiles/Aktien.dir

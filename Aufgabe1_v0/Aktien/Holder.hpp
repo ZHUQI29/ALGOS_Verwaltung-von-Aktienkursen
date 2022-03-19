@@ -18,6 +18,8 @@ public:
     vector<string> line(string str);
     Stock* search(string input);
     void del(string input);
+    HashTable* getHashTable(bool abbrTable);
+
 private:
     HashTable* hashTable;
     HashTable* abbrToNameDic;

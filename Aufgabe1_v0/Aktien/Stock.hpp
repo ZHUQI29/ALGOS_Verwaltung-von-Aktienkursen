@@ -1,7 +1,7 @@
 #ifndef AKTIEN_STOCK_HPP
 #define AKTIEN_STOCK_HPP
 
-
+#include "globals.hpp"
 #include "StockEntry.hpp"
 #include <string>
 using namespace std;

@@ -64,4 +64,12 @@ void Holder::del(string input) {
     }
 }
 
+HashTable* Holder::getHashTable(bool abbrTable) {
+    if (abbrTable) {
+        return abbrToNameDic;
+    } else {
+        return hashTable;
+    }
+}
+
 

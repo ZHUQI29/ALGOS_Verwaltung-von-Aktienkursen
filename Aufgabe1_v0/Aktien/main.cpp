@@ -6,6 +6,7 @@
 #include <limits>
 #include "Holder.hpp"
 #include "globals.hpp"
+#include "SaveAndLoad.hpp"
 
 using namespace std;
 
@@ -61,7 +62,6 @@ vector<vector<char>> generateASCII(Stock* stock) {
     vector<int> percentages;
     float highest = std::numeric_limits<float>::min(), lowest = std::numeric_limits<float>::max(), dif;
     for (int i = 0; i < 10; ++i) {
-
         ascii.push_back({'|'});
     }
     for (int i = 0; i < 30; ++i) {
@@ -151,9 +151,12 @@ char frage(){
     return a;
 }
 
+
+
 int main()
 {
     Holder* holder = new Holder();
+    SaveAndLoad* saveNload = new SaveAndLoad();
     int i=1;
     while(i){
         switch (frage()) {
@@ -162,8 +165,8 @@ int main()
             case '3':import(holder);break;
             case '4':showLastEntry(search(holder));break;
             case '5':plotAllEntries(search(holder));break;
-            case '6':std::cerr << "noch nicht schreiben" << '\n';break;
-            case '7':std::cerr << "noch nicht schreiben" << '\n';break;
+            case '6':saveNload->initializeSaving(holder);break;
+            case '7':saveNload->initializeLoading(holder);break;
             case '8':i=0;break;
         }
     }

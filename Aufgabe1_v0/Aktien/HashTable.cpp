@@ -53,3 +53,7 @@ void HashTable::del(int index, string abbr) {
         Table[index].erase(Table[index].end());
     }
 }
+
+vector<Stock*>* HashTable::getStockFromIndex(int index) {
+    return &Table[index] ? &Table[index] : nullptr;
+}

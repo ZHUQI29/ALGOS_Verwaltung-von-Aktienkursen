@@ -14,6 +14,7 @@ public:
     void insert(Stock* stock, string name);
     Stock* search(int index, string abr);
     void del(int index, string abbr);
+    vector<Stock*>* getStockFromIndex(int index);
 
 private:
     vector<Stock*> Table[TABLE_SIZE];
