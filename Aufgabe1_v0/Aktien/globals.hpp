@@ -6,6 +6,7 @@
 
 #include <cctype>
 struct convert {
+    // https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case
     void operator()(char& c) { c = toupper((unsigned char)c); }
 };
 
