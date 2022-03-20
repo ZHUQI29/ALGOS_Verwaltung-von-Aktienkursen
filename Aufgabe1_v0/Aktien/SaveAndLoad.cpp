@@ -1,13 +1,10 @@
 #include "SaveAndLoad.hpp"
 
-SaveAndLoad::SaveAndLoad() {
-    
-}
+SaveAndLoad::SaveAndLoad() {}
 
-SaveAndLoad::~SaveAndLoad() {
-    
-}
+SaveAndLoad::~SaveAndLoad() {}
 
+// Search for all Stocks and save each in a .csv file. Add their names to HASHNAMES.csv and save it too.
 void SaveAndLoad::initializeSaving(Holder* holder) {
     vector<string> nameList;
     for (int i = 0; i < TABLE_SIZE; ++i) {
@@ -30,6 +27,7 @@ void SaveAndLoad::initializeSaving(Holder* holder) {
     nameFile.close();
 }
 
+// Save a Stock to [name].csv
 void SaveAndLoad::saveToFile(Stock* stock, string name, string abbr) {
     ofstream newFile;
     newFile.open(name + ".csv");
@@ -46,6 +44,7 @@ void SaveAndLoad::saveToFile(Stock* stock, string name, string abbr) {
     newFile.close();
 }
 
+// Get all names from HASHNAMES.csv and import all Stocks by their [name].csv
 void SaveAndLoad::initializeLoading(Holder* holder) {
     ifstream inFile("HASHNAMES.csv", ios::in);
     if (inFile.fail()) {

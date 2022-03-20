@@ -3,16 +3,19 @@
 #include <iostream>
 #include "Holder.hpp"
 
+// Constructor
 Holder::Holder() {
     this->hashTable = new HashTable();
     this->abbrToNameDic = new HashTable();
 }
 
+// De-Constructor
 Holder::~Holder() {
     delete hashTable;
     delete abbrToNameDic;
 }
 
+// Create a new Stock and add it to both hash tables.
 void Holder::addStock(vector<string> strArray, string abbreviation, string name) {
     StockEntry* stockEntries[30];
     for (int i = 0; i < 30; ++i) {
@@ -30,6 +33,7 @@ void Holder::addStock(vector<string> strArray, string abbreviation, string name)
     hashTable->insert(new Stock(abbreviation, name,stockEntries), name);
 }
 
+// get an array from a string of data, seperated by commas
 vector<string> Holder::line(string str) {
     stringstream ss(str);
     string temp;
@@ -41,6 +45,7 @@ vector<string> Holder::line(string str) {
     return lineArray;
 }
 
+// begin search for Stock, based on input
 Stock* Holder::search(string input) {
     int hashedInput = hashTable->hash(input);
     Stock* stock = abbrToNameDic->search(hashedInput, input);
@@ -52,6 +57,7 @@ Stock* Holder::search(string input) {
     }
 }
 
+// delete Stock from table
 void Holder::del(string input) {
     Stock* stock = search(input);
     if (stock == nullptr) {
@@ -64,6 +70,7 @@ void Holder::del(string input) {
     }
 }
 
+// return one of both hashtables.
 HashTable* Holder::getHashTable(bool abbrTable) {
     if (abbrTable) {
         return abbrToNameDic;

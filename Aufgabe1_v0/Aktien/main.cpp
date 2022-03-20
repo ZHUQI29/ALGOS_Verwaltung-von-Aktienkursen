@@ -10,6 +10,7 @@
 
 using namespace std;
 
+// import a Stock from filesystem
 void import(Holder* holder){
     // 读文件 Datei lesen
     std::cout << "Ziehen Sie per Drag&Drop die Datei für den import" << '\n';
@@ -36,9 +37,9 @@ void import(Holder* holder){
     }
     holder->addStock(strArray, abbr, name);
     std::cout << "\ndone\n" << std::endl;
-
 }
 
+// Calculate char for ascii-graphic
 char getChar(int index, int actualPerc, int nextPerc = 0) {
     int actualPixelPos = 10 - index;
     if (actualPerc == actualPixelPos) {
@@ -57,6 +58,8 @@ char getChar(int index, int actualPerc, int nextPerc = 0) {
     return ' ';
 }
 
+// Create ascii-display. Calculate difference from lowest to highest to get only the relevant segment of the chart.
+// Go through all "pixels" of the 2d-display and set the right char. (Calculation above)
 vector<vector<char>> generateASCII(Stock* stock) {
     vector<vector<char>> ascii;
     vector<int> percentages;
@@ -82,6 +85,7 @@ vector<vector<char>> generateASCII(Stock* stock) {
     return ascii;
 }
 
+// print all Stock Entries from the last 30 days and print a ascii-chart.
 void plotAllEntries(Stock* stock) {
     if (stock != nullptr) {
         std::cout << "\nDate\t\tOpen\tHigh\tLow\tClose\tAdjCls\tVolume\n";
@@ -107,8 +111,7 @@ void plotAllEntries(Stock* stock) {
     }
 }
 
-
-
+// print only last Stock-entry
 void showLastEntry(Stock* stock) {
     if (stock != nullptr) {
         std::cout << stock->entries[0]->date << ": ";
@@ -122,6 +125,7 @@ void showLastEntry(Stock* stock) {
     }
 }
 
+// self explanatory
 string getInput() {
     std::cout << "Geben Sie Name oder Kuerzel ein: ";
     string input;
@@ -130,6 +134,7 @@ string getInput() {
     return input;
 }
 
+// try to search for Stock, based in input
 Stock* search(Holder* holder) {
     Stock* result = holder->search(getInput());
     if (result == nullptr) {
@@ -140,26 +145,27 @@ Stock* search(Holder* holder) {
     }
 }
 
+// start deleting Stock, based on input
 void del(Holder* holder) {
     holder->del(getInput());
 }
 
-char frage(){
+// print menu
+char getInputForMenu(){
     char a;
     std::cout << "1. ADD 2. DEL 3. IMPORT 4. SEARCH 5. PLOT 6. SAVE 7. LOAD 8. QUIT" << '\n';
     std::cin >>a;
     return a;
 }
 
-
-
+// create holder (holds all fragments of the program), create saveAndLoad and ask user for menu-input
 int main()
 {
     Holder* holder = new Holder();
     SaveAndLoad* saveNload = new SaveAndLoad();
     int i=1;
     while(i){
-        switch (frage()) {
+        switch (getInputForMenu()) {
             case '1':std::cerr << "noch nicht schreiben" << '\n';break;
             case '2':del(holder);break;
             case '3':import(holder);break;
@@ -173,6 +179,3 @@ int main()
     delete holder;
     return 0;
 }
-
-
-// /home/domain/Documents/GitHub/ALGOS_Aktien/ALGOS/Aufgabe1/NTDOY.csv

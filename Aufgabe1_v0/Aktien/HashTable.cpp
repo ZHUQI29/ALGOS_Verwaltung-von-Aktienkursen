@@ -1,5 +1,6 @@
 #include "HashTable.hpp"
 
+// Constructor
 HashTable::HashTable() {
     for (int i = 0; i < TABLE_SIZE; ++i) {
         vector<Stock*> temp;
@@ -7,6 +8,7 @@ HashTable::HashTable() {
     }
 }
 
+// De-Constructor
 HashTable::~HashTable() {
     for (int i = 0; i < TABLE_SIZE; ++i) {
         for (int j = 0; j < Table[i].size(); ++j) {
@@ -17,6 +19,7 @@ HashTable::~HashTable() {
     //delete[] Table[];
 }
 
+// hash word. 137 = prime number
 int HashTable::hash(std::string word) {
     int seed = 137;
     long hash = 0;
@@ -26,11 +29,13 @@ int HashTable::hash(std::string word) {
     return (hash % TABLE_SIZE);
 }
 
+// add Stock to Table
 void HashTable::insert(Stock* stock, string name) {
     int index = hash(name);
     Table[index].push_back(stock);
 }
 
+// search for Stock in Table. Use External Chaining, if more than 1 Stock at Table[index].
 Stock* HashTable::search(int index, string abbrOrName) {
     vector<Stock*> hashAtIndex = Table[index];
     if (hashAtIndex.size() == 0) { return nullptr; }
@@ -45,6 +50,7 @@ Stock* HashTable::search(int index, string abbrOrName) {
     }
 }
 
+// delete Stock at index, with right abbreviation
 void HashTable::del(int index, string abbr) {
     delete (search(index, abbr));
     if (Table[index].size() == 1) {
@@ -54,6 +60,7 @@ void HashTable::del(int index, string abbr) {
     }
 }
 
+// return Stock by index
 vector<Stock*>* HashTable::getStockFromIndex(int index) {
     return &Table[index] ? &Table[index] : nullptr;
 }
