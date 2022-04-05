@@ -1,9 +1,13 @@
 # ALGOS_Verwaltung-von-Aktienkursen
  für 2.Semester ALGOS 1Aufgabe:Verwaltung von Aktienkursen
+ 
+ 
 Qi Zhu
+
+
 Moisejev	Artjom
 
-#how to use
+# how to use
 1.Download the SCV file for any stock
 
 
